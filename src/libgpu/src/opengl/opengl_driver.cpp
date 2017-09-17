@@ -473,8 +473,8 @@ GLDriver::updateGraphicsDebugInfo()
       mVertexShaders.size(),
       mPixelShaders.size(),
       mShaderPipelines.size(),
-      mSurfaces.size(),
-      mDataBuffers.size()
+      &mSurfaces,
+      mDataBuffers.size(),
    };
 }
 

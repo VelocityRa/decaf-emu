@@ -50,9 +50,8 @@ void PerformanceWindow::draw()
 
 void PerformanceWindow::drawGraphs()
 {
-   auto ImgGuiNoResize = ImGuiWindowFlags_NoResize;
+   auto ImgGuiNoResize = ImGuiWindowFlags_AlwaysAutoResize;
 
-   ImGui::SetNextWindowSize(ImVec2{ 400.0f, 255.0f });
    ImGui::Begin("Performance", nullptr, ImgGuiNoResize);
 
    auto fps = decaf::getGraphicsDriver()->getAverageFPS();
