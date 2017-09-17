@@ -37,9 +37,8 @@
 #include <common/enum_string_declare.h>
 #include "latte_enum_spi.h"
 
-// TODO: Fix collision in SQ_RES_OFFSET
-// #include <common/enum_string_declare.h>
-// #include "latte_enum_sq.h"
+#include <common/enum_string_declare.h>
+#include "latte_enum_sq.h"
 
 #include <common/enum_string_declare.h>
 #include "latte_enum_vgt.h"

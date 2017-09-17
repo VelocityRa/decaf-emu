@@ -426,7 +426,7 @@ GX2SetPixelUniformBlock(uint32_t location,
 
    SetVtxResource res;
    memset(&res, 0, sizeof(SetVtxResource));
-   res.id = (latte::SQ_RES_OFFSET::PS_BUF_RESOURCE_0 + location) * 7;
+   res.id = (latte::SQ_RES_OFFSET::VS_TEX_OR_PS_BUF_RESOURCE_0 + location) * 7;
    res.baseAddress = data;
 
    res.word1 = res.word1

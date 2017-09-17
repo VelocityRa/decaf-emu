@@ -211,7 +211,7 @@ void
 GX2SetVertexTexture(GX2Texture *texture,
                     uint32_t unit)
 {
-   setTexture(texture, latte::SQ_RES_OFFSET::VS_TEX_RESOURCE_0, unit);
+   setTexture(texture, latte::SQ_RES_OFFSET::VS_TEX_OR_PS_BUF_RESOURCE_0, unit);
 }
 
 void

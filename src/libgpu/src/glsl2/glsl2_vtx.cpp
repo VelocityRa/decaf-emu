@@ -17,7 +17,7 @@ static void
 VTX_FETCH(State &state, const ControlFlowInst &cf, const VertexFetchInst &inst)
 {
    //  FETCH R4.xyzw, R0.y, b131 NO_INDEX_OFFSET FMT_FROM_FETCH_CONSTANT MEGA(16) OFFSET(0)
-   auto id = inst.word0.BUFFER_ID() + SQ_RES_OFFSET::VS_TEX_RESOURCE_0;
+   auto id = inst.word0.BUFFER_ID() + SQ_RES_OFFSET::VS_TEX_OR_PS_BUF_RESOURCE_0;
 
    // For now we only support reading from vertex buffers (uniform blocks)
    decaf_assert(id >= SQ_RES_OFFSET::VS_BUF_RESOURCE_0 && id < SQ_RES_OFFSET::VS_GSOUT_RESOURCE, fmt::format("Unsupported VTX_FETCH buffer id {}", id));

@@ -313,7 +313,7 @@ bool GLDriver::checkActiveShader()
          auto bufferDivisor = std::array<uint32_t, latte::MaxAttributes> { 0 };
 
          for (auto &attrib : fetchShader->attribs) {
-            auto resourceId = attrib.buffer + latte::SQ_RES_OFFSET::VS_TEX_RESOURCE_0;
+            auto resourceId = attrib.buffer + latte::SQ_RES_OFFSET::VS_TEX_OR_PS_BUF_RESOURCE_0;
 
             if (resourceId >= latte::SQ_RES_OFFSET::VS_ATTRIB_RESOURCE_0 && resourceId < latte::SQ_RES_OFFSET::VS_ATTRIB_RESOURCE_0 + 0x10) {
                auto attribBufferId = resourceId - latte::SQ_RES_OFFSET::VS_ATTRIB_RESOURCE_0;
@@ -872,7 +872,7 @@ GLDriver::checkAttribBuffersBound()
 
    for (auto i = 0; i < mActiveShader->fetch->attribs.size(); ++i) {
       auto &attrib = mActiveShader->fetch->attribs[i];
-      auto resourceOffset = (latte::SQ_RES_OFFSET::VS_TEX_RESOURCE_0 + attrib.buffer) * 7;
+      auto resourceOffset = (latte::SQ_RES_OFFSET::VS_TEX_OR_PS_BUF_RESOURCE_0 + attrib.buffer) * 7;
       auto sq_vtx_constant_word0 = getRegister<latte::SQ_VTX_CONSTANT_WORD0_N>(latte::Register::SQ_RESOURCE_WORD0_0 + 4 * resourceOffset);
 
       if (!sq_vtx_constant_word0.BASE_ADDRESS()) {
@@ -976,7 +976,7 @@ bool GLDriver::compileVertexShader(VertexShader &vertex, FetchShader &fetch, uin
    shader.type = glsl2::Shader::VertexShader;
 
    for (auto i = 0; i < latte::MaxSamplers; ++i) {
-      auto resourceOffset = (latte::SQ_RES_OFFSET::VS_TEX_RESOURCE_0 + i) * 7;
+      auto resourceOffset = (latte::SQ_RES_OFFSET::VS_TEX_OR_PS_BUF_RESOURCE_0 + i) * 7;
       auto sq_tex_resource_word0 = getRegister<latte::SQ_TEX_RESOURCE_WORD0_N>(latte::Register::SQ_RESOURCE_WORD0_0 + 4 * resourceOffset);
 
       shader.samplerDim[i] = sq_tex_resource_word0.DIM();
